@@ -1,0 +1,6 @@
+com\gl\customer\management\service\CustomerService.class
+com\gl\customer\management\service\CustomerServiceImpl.class
+com\gl\customer\management\controller\CustomerController.class
+com\gl\customer\management\dao\CustomerDaoImpl.class
+com\gl\customer\management\dao\CustomerDao.class
+com\gl\customer\management\entity\Customer.class
