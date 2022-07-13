@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gl.customer.management.entity.Customer;
@@ -15,6 +16,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	private SessionFactory sessionFactory;
 	private Session session;
 	
+	@Autowired
 	public CustomerDaoImpl(SessionFactory sessionFactory) {
 		try {
 			session = sessionFactory.getCurrentSession();
@@ -25,26 +27,25 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public List<Customer> getCustomers() {
-		return session.createQuery("Select c from customer c", Customer.class).getResultList();
+		return session.createQuery("Select c from Customer c", Customer.class).getResultList();
 	}
 
 	@Override
-	public void deleteCustomer(int id) {
-		Session session = sessionFactory.getCurrentSession();
-		Customer book = session.byId(Customer.class).load(id);
-		session.delete(book);
+	public void deleteCustomer(Integer id) {
+		Customer customer = session.get(Customer.class, id);
+		session.getTransaction().begin();
+		session.delete(customer);
+		session.getTransaction().commit();
 	}
 
 	@Override
-	public void saveCustomer(Customer theCustomer) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		currentSession.saveOrUpdate(theCustomer);
+	public void saveCustomer(Customer customer) {
+		session.save(customer);
 	}
 
 	@Override
-	public Customer getCustomer(int id) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		Customer theCustomer = currentSession.get(Customer.class, id);
-		return theCustomer;
+	public Customer getCustomer(Integer id) {
+		Customer customer = session.get(Customer.class, id);
+		return customer;
 	}
 }

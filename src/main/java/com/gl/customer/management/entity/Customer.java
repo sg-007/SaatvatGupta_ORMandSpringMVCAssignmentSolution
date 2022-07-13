@@ -12,7 +12,7 @@ public class Customer {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -21,7 +21,7 @@ public class Customer {
 		
 	}
 	
-	public Customer(int id, String firstName, String lastName, String email) {
+	public Customer(Integer id, String firstName, String lastName, String email) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -33,7 +33,7 @@ public class Customer {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

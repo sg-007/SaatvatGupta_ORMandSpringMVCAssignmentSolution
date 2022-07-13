@@ -1,63 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Spring MVC 5 - form handling | Java Guides</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+crossorigin="anonymous">
+
+<title>Save Customer</title>
 </head>
+
 <body>
+
 	<div class="container">
-		<div class="col-md-offset-2 col-md-7">
-			<h2 class="text-center">Spring MVC 5 + Hibernate 5 + JSP + MySQL
-				Example</h2>
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<div class="panel-title">Add Customer</div>
-				</div>
-				<div class="panel-body">
-					<form:form action="saveCustomer" cssClass="form-horizontal"
-						method="post" modelAttribute="customer">
 
-						<!-- need to associate this data with customer id -->
-						<form:hidden path="id" />
+		<h3>Save Customer</h3>
+		<hr>
 
-						<div class="form-group">
-							<label for="firstname" class="col-md-3 control-label">First
-								Name</label>
-							<div class="col-md-9">
-								<form:input path="firstName" cssClass="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="lastname" class="col-md-3 control-label">Last
-								Name</label>
-							<div class="col-md-9">
-								<form:input path="lastName" cssClass="form-control" />
-							</div>
-						</div>
+		<form action="/GradedProjectSpring/customer/saveCustomer" method="POST">
 
-						<div class="form-group">
-							<label for="email" class="col-md-3 control-label">Email</label>
-							<div class="col-md-9">
-								<form:input path="email" cssClass="form-control" />
-							</div>
-						</div>
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" name="id" placeholder="CustomerID" />
 
-						<div class="form-group">
-							<!-- Button -->
-							<div class="col-md-offset-3 col-md-9">
-								<form:button cssClass="btn btn-primary">Submit</form:button>
-							</div>
-						</div>
-
-					</form:form>
-				</div>
+			<div class="form-inline">
+				<input type="text" name="firstName"
+					class="form-control-sm" placeholder="Enter your FirstName">
 			</div>
-		</div>
+
+
+			<div class="form-inline">
+
+				<input type="text" name="lastName"
+					class="form-control-sm" placeholder="Enter your LastName">
+			</div>
+
+
+			<div class="form-inline">
+
+				<input type="text" name="email"
+					class="form-control-sm" placeholder="Enter your email">
+			</div>
+
+
+			<button type="submit" class="btn btn-success">Save</button>
+
+		</form>
+
+		<hr>
+		<a href="/GradedProjectSpring/customer/list">Back</a>
+
 	</div>
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
