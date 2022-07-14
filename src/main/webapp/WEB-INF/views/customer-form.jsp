@@ -11,63 +11,67 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-crossorigin="anonymous">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 
 <title>Save Customer</title>
 </head>
 
-<body>
+<body style="background-color: powderblue;">
 
 	<div class="container">
+		<p></p><p></p><p></p>
+		<h2>Save Customer</h2>
+		<form class="form-horizontal"
+			action="/GradedProjectSpring/customer/saveCustomer" method="POST">
+			<input type="hidden" name="id" placeholder="id" />
 
-		<h3>Save Customer</h3>
-		<hr>
-
-		<form action="/GradedProjectSpring/customer/saveCustomer" method="POST">
-
-			<!-- Add hidden form field to handle update -->
-			<input type="hidden" name="id" placeholder="CustomerID" />
-
-			<div class="form-inline">
-				<input type="text" name="firstName"
-					class="form-control-sm" placeholder="Enter your FirstName">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="firstName" style="float: left">First
+					Name: </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control-sm" id="firstName"
+						placeholder="Enter Firstname" name="firstName">
+				</div>
 			</div>
 
+			<p></p>
 
-			<div class="form-inline">
-
-				<input type="text" name="lastName"
-					class="form-control-sm" placeholder="Enter your LastName">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="lastName" style="float: left">Last
+					Name: </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control-sm" id="lastName"
+						placeholder="Enter Lastname" name="lastName">
+				</div>
 			</div>
 
+			<p></p>
 
-			<div class="form-inline">
-
-				<input type="text" name="email"
-					class="form-control-sm" placeholder="Enter your email">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email" style="float: left">Email: </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control-sm" id="email"
+						placeholder="Enter Email" name="email">
+				</div>
 			</div>
 
+			<p></p>
 
-			<button type="submit" class="btn btn-success">Save</button>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+				</div>
+			</div>
 
 		</form>
-
-		<hr>
-		<a href="/GradedProjectSpring/customer/list">Back</a>
-
+		<p></p>
+		<a href="/GradedProjectSpring/customer/list"
+			class="btn btn-primary btn-sm"> Back </a>
 	</div>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
