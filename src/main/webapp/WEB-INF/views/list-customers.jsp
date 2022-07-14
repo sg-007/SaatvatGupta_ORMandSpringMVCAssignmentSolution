@@ -51,7 +51,7 @@
 							class="btn btn-info btn-sm"> Update </a> |
 							<a href="/GradedProjectSpring/customer/deleteCustomer?id=${customer.id}"
 							class="btn btn-danger btn-sm"
-							onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+							onclick="if (!(confirm('Are you sure you want to delete the employee ${customer.firstName} ${customer.lastName}?'))) return false">
 								Delete </a>
 
 						</td>
